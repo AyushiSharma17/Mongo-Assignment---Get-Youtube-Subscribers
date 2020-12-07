@@ -5,7 +5,7 @@ const SubscriberModel = require('./models/subscribers');
 
 
 // Your code goes here
-app.get('/subscribers', async (req, res) => {
+app.get("/subscribers", async (req, res) => {
   res.send(await SubscriberModel.find());
 });
 
@@ -20,7 +20,7 @@ app.get('/subscribers', async (req, res) => {
 //   res.send(mappedResults);
 // });
 
-app.get('subscribers/names', async (req, res) => {
+app.get("subscribers/names", async (req, res) => {
   const projectedResults = await SubscriberModel.find().select({
     name: true,
     subscribedChannel: true,
@@ -39,7 +39,7 @@ app.get("subscribers/:id", async(req, res) => {
     res.send(doc);
   }
   } catch(err) {
-    res.status(400).send({message: "Incorrect id format"});
+    res.status(400).send({message: err.message});
   }
 });
 
