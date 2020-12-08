@@ -20,7 +20,7 @@ app.get("/subscribers", async (req, res) => {
 //   res.send(mappedResults);
 // });
 
-app.get("subscribers/names", async (req, res) => {
+app.get("/subscribers/names", async (req, res) => {
   const projectedResults = await SubscriberModel.find().select({
     name: true,
     subscribedChannel: true,
@@ -29,7 +29,7 @@ app.get("subscribers/names", async (req, res) => {
   res.send(projectedResults);
 });
 
-app.get("subscribers/:id", async(req, res) => {
+app.get("/subscribers/:id", async(req, res) => {
   const idToSearch = req.params.id;
   try{
   const doc = await SubscriberModel.findOne({_id: idToSearch});
